@@ -8,7 +8,6 @@ export async function signUpAction(
     prevState: ActionState,
     formData: FormData,
 ): Promise<ActionState> {
-    console.log('prevState:', prevState, 'formData:', formData);
 
     const name = (formData.get('name') as string) || '';
     const email = (formData.get('email') as string) || '';

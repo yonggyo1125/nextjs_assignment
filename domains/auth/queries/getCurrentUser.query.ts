@@ -34,9 +34,9 @@ export const getCurrentUser = cache(async (): Promise<CurrentUserSession> => {
             id: profile.id,
             name: profile.name,
             email: authUser.email,
-            createdAt: profile.createdAt,
-            updatedAt: profile.updatedAt,
-            deletedAt: profile.deletedAt,
+            createdAt: profile.created_at,
+            updatedAt: profile.updated_at,
+            deletedAt: profile.deleted_at,
         },
     };
 });
