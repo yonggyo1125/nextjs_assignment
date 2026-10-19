@@ -22,7 +22,7 @@ export const getCurrentUser = cache(async (): Promise<CurrentUserSession> => {
         .from('profiles')
         .select('*')
         .eq('id', authUser.id)
-        .is('deletedAt', null)
+        .is('deleted_at', null)
         .single();
 
     if (!profile) {

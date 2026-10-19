@@ -1,5 +1,3 @@
-export const instant = false;
-
 import Header from '@/shared/components/Header';
 import { Suspense } from 'react';
 interface TodoLayoutProps {

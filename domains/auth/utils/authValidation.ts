@@ -1,4 +1,4 @@
-import { SignInInput, SignUpInput } from '../types/auth.types';
+import type { SignInInput, SignUpInput } from '../types/auth.types';
 
 const EMAIL_REGEX = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 

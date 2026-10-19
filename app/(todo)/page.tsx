@@ -1,3 +1,3 @@
 export default function TodoPage(): React.JSX.Element {
-    return <></>;
+    return <div></div>;
 }
