@@ -2,7 +2,7 @@ export type TodoStatus = 'READY' | 'PROGRESS' | 'DONE';
 
 export interface Todo {
     id: string;
-    status?: TodoStatus;
+    status: TodoStatus;
     userId: string;
     userName: string;
     title: string;
@@ -17,13 +17,7 @@ export interface AddTodoInput {
     content: string;
 }
 
-export interface ChangeTodoInput {
+export interface ChangeTodoInput extends AddTodoInput {
     id: string;
-    title: string;
-    content: string;
-}
-
-export interface ChangeStatusInput {
-    id: string;
-    status: TodoStatus;
+    status?: TodoStatus;
 }
