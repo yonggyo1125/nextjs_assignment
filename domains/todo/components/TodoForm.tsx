@@ -7,7 +7,7 @@ import { INITIAL_ACTION_STATE } from '@/shared/types/action.types';
 import { useRouter } from 'next/navigation';
 import { ChangeEvent, useActionState, useEffect, useState } from 'react';
 import { FiAlertCircle } from 'react-icons/fi';
-import { AddTodoAction } from '../actions/todo.actions';
+import { addTodoAction } from '../actions/todo.actions';
 
 interface FormState {
     title: string;
@@ -23,7 +23,7 @@ export default function TodoForm() {
     const router = useRouter();
 
     const [state, formAction, isPending] = useActionState(
-        AddTodoAction,
+        addTodoAction,
         INITIAL_ACTION_STATE,
     );
 

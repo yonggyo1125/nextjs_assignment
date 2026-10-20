@@ -1,6 +1,9 @@
+'use server';
+
 import { getCurrentUser } from '@/domains/auth/queries/getCurrentUser.query';
 import { createServerClient } from '@/shared/lib/supabase';
 import { Todo } from '../types/todo.types';
+import { toTodo } from '../utils/todoConverter';
 
 export async function getTodoById(id: string): Promise<Todo | null> {
     const supabase = createServerClient();
@@ -26,15 +29,5 @@ export async function getTodoById(id: string): Promise<Todo | null> {
 
     if (!data) return null;
 
-    return {
-        id: data.id,
-        userId: data.user_id,
-        userName: data.user_name,
-        status: data.status,
-        title: data.title,
-        content: data.content,
-        createdAt: data.created_at,
-        updatedAt: data.updated_at,
-        deletedAt: data.deleted_at,
-    };
+    return toTodo(data);
 }

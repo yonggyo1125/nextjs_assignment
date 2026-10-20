@@ -21,3 +21,15 @@ export interface ChangeTodoInput extends AddTodoInput {
     id: string;
     status?: TodoStatus;
 }
+
+export interface TodoResponse {
+    id: string;
+    user_id: string;
+    user_name: string;
+    status: TodoStatus;
+    title: string;
+    content: string;
+    created_at: string;
+    updated_at: string | null;
+    deleted_at?: string | null;
+}
