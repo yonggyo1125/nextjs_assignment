@@ -38,8 +38,8 @@ export async function AddTodoAction(
             status: 'READY',
             title,
             content,
-            userId: user.id,
-            userName: user.name,
+            user_id: user.id,
+            user_name: user.name,
         })
         .select('*')
         .single();
