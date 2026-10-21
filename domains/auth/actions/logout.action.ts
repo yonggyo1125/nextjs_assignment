@@ -16,6 +16,7 @@ export async function logoutAction(): Promise<ActionState> {
         };
     }
 
+    
     revalidatePath('/', 'layout');
 
     return {
