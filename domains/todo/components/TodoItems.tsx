@@ -62,13 +62,16 @@ function TodoItem({ item, onClick }: TodoItemProps) {
             <div className="font-medium mb-3">
                 <span className="mr-1">[{TODO_STATUS_MAP[status]}]</span>
                 <Link href={`/todo/${id}/view`}>{title}</Link>
-                
-                <Button
-                    type="button"
-                    onClick={() => (isPinned ? removePin(id) : addPin(item))}
-                >
-                    {isPinned ? '찜해제' : '찜하기'}
-                </Button>
+                {_hasHydrated && (
+                    <Button
+                        type="button"
+                        onClick={() =>
+                            isPinned ? removePin(id) : addPin(item)
+                        }
+                    >
+                        {isPinned ? '찜해제' : '찜하기'}
+                    </Button>
+                )}
             </div>
 
             <div className="flex gap-2">
