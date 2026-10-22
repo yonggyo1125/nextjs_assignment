@@ -1,5 +1,6 @@
 'use client';
 
+import { produce } from 'immer';
 import { Button } from '@/shared/components/ui/button';
 import Link from 'next/link';
 import { useOptimistic, useState, useTransition } from 'react';
@@ -46,11 +47,10 @@ export default function TodoDashBoard({
                 await changeTodoStatus(id, status);
 
                 // 서버에 반영 성공 시 실제 상태 동기화
-                setItems((prev) =>
-                    prev.map((item) =>
-                        item.id === id ? { ...item, status } : item,
-                    ),
-                );
+                setItems(produce(draft => {
+                    const item = draft.find(item => item.id === id);
+                    if (item) item.status = status;
+                }));
             } catch (error) {
                 // 실패 시 startTransition이 종료 되면서 자동으로 items(원래 상태)로 롤백됨
                 console.error('상태 변경 실패:', error);
